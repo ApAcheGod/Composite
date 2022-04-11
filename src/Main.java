@@ -1,3 +1,5 @@
+import java.util.Map;
+
 public class Main {
     public static void main(String[] args) {
         Department university = new Department("Университет");
@@ -36,13 +38,17 @@ public class Main {
         OK.addChildren(new Employee("Сотрудник 11", 1100));
         OK.addChildren(new Employee("Сотрудник 12", 1200));
 
-        System.out.println(university.getPayslip()); // 7800
+        EmployeeIterator iterator =  university.getIterator();
+        // Вывод последовательности сотрудников
+        while(iterator.hasNext()){
+            System.out.println(iterator.next());
+        }
+        EmployeeIterator iterator2 =  university.getIterator();
 
-        System.out.println(UMU.getPayslip()); // 1500
-
-        university.increaseTheSalary(1000);
-
-        System.out.println(university.getPayslip()); // 19800
+        // Увеличение зарплаты
+        while(iterator2.hasNext()){
+            iterator2.next().increaseTheSalary(100000);
+        }
 
         university.getInformation();
     }

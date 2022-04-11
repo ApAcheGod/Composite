@@ -8,6 +8,7 @@ public class Employee implements Component{
         this.salary = salary;
     }
 
+
     public String getLast_name() {
         return last_name;
     }
@@ -43,5 +44,14 @@ public class Employee implements Component{
     @Override
     public void getInformation() {
         System.out.println(last_name + " " + salary);
+    }
+
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "last_name='" + last_name + '\'' +
+                ", salary=" + salary +
+                '}';
     }
 }
